@@ -1,0 +1,90 @@
+{
+  "bounds": [
+    -180,
+    -85.0511,
+    180,
+    85.0511
+  ],
+  "center": [
+    85.3205,
+    27.7058,
+    16
+  ],
+  "format": "png8",
+  "interactivity": false,
+  "minzoom": 10,
+  "maxzoom": 18,
+  "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+  "Stylesheet": [
+    "style.mss",
+    "base.mss",
+    "palette.mss",
+    "labels.mss",
+    "roads.mss"
+  ],
+  "Layer": [
+    {
+      "id": "countries",
+      "name": "countries",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "geometry": "polygon",
+      "Datasource": {
+        "file": "http://mapbox-geodata.s3.amazonaws.com/natural-earth-1.4.0/cultural/10m-admin-0-countries.zip",
+        "type": "shape"
+      }
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        79.63090189176135,
+        25.727596875441762,
+        88.64798410123775,
+        30.6004271982763
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "( SELECT way, COALESCE(highway, railway) AS type, 0 AS tunnel, 0 AS bridge, access, 'fill' AS render,\n  CASE\n    WHEN highway IN ('motorway', 'trunk') THEN 'motorway'\n    WHEN highway IN ('primary', 'secondary') THEN 'mainroad'\n    WHEN highway IN ('motorway_link', 'trunk_link', 'primary_link', 'secondary_link', 'tertiary', 'tertiary_link', 'residential', 'unclassified', 'road', 'living_street') THEN 'minorroad'\n    WHEN highway IN ('service', 'track') THEN 'service'\n    WHEN highway IN ('path', 'cycleway', 'footway', 'pedestrian', 'steps', 'bridleway') THEN 'noauto'\n    WHEN railway IN ('light_rail', 'subway', 'narrow_gauge', 'rail', 'tram') THEN 'railway'\n    ELSE 'other' END AS stylegroup\n  FROM planet_osm_line\n  WHERE (highway IS NOT NULL OR railway IS NOT NULL)\n    AND (tunnel IS NULL OR tunnel = 'no')\n    AND (bridge IS NULL OR bridge = 'no')\n  ORDER BY z_order\n) AS data",
+        "key_field": "",
+        "geometry_field": "way",
+        "extent_cache": "auto",
+        "extent": "8864471.45,2965381.58,9868248.45,3580965.01",
+        "dbname": "osm2"
+      },
+      "id": "roads_low",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "roads_low"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        79.63090189176135,
+        25.727596875441762,
+        88.64798410123775,
+        30.6004271982763
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "( SELECT way, COALESCE(highway, railway) AS type, 0 AS tunnel, 0 AS bridge, access, 'fill' AS render,\n  CASE\n    WHEN highway IN ('motorway', 'trunk') THEN 'motorway'\n    WHEN highway IN ('primary', 'secondary') THEN 'mainroad'\n    WHEN highway IN ('motorway_link', 'trunk_link', 'primary_link', 'secondary_link', 'tertiary', 'tertiary_link', 'residential', 'unclassified', 'road', 'living_street') THEN 'minorroad'\n    WHEN highway IN ('service', 'track') THEN 'service'\n    WHEN highway IN ('path', 'cycleway', 'footway', 'pedestrian', 'steps', 'bridleway') THEN 'noauto'\n    WHEN railway IN ('light_rail', 'subway', 'narrow_gauge', 'rail', 'tram') THEN 'railway'\n    ELSE 'other' END AS stylegroup\n  FROM planet_osm_line\n  WHERE (highway IS NOT NULL OR railway IS NOT NULL)\n    AND (tunnel IS NULL OR tunnel = 'no')\n    AND (bridge IS NULL OR bridge = 'no')\n  ORDER BY z_order\n) AS data",
+        "key_field": "",
+        "geometry_field": "way",
+        "extent_cache": "auto",
+        "extent": "8864471.45,2965381.58,9868248.45,3580965.01",
+        "dbname": "osm2"
+      },
+      "id": "roads_high",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "roads_high"
+    }
+  ],
+  "scale": 1,
+  "metatile": 2,
+  "name": "Quake Maps",
+  "description": "",
+  "attribution": ""
+}

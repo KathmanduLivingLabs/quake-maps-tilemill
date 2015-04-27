@@ -34,6 +34,72 @@
       }
     },
     {
+      "Datasource": {
+        "dbname": "osm2",
+        "extent": [
+          79.63090189176135,
+          25.727596875441762,
+          88.64798410123775,
+          30.6004271982763
+        ],
+        "geometry_field": "way",
+        "id": "waterway",
+        "key_field": "",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+        "table": "( SELECT way, waterway AS type  FROM planet_osm_line  WHERE waterway IN ('river', 'canal')) AS data",
+        "type": "postgis"
+      },
+      "class": "",
+      "geometry": "linestring",
+      "id": "waterway_low",
+      "name": "waterway_low",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913",
+      "status": "on"
+    },
+    {
+      "Datasource": {
+        "dbname": "osm2",
+        "extent": [
+          79.63090189176135,
+          25.727596875441762,
+          88.64798410123775,
+          30.6004271982763
+        ],
+        "geometry_field": "way",
+        "key_field": "",
+        "table": "( SELECT way, waterway AS type  FROM planet_osm_line  WHERE waterway IN ('river', 'canal', 'stream')) AS data",
+        "type": "postgis"
+      },
+      "class": "",
+      "geometry": "linestring",
+      "id": "waterway_med",
+      "name": "waterway_med",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913"
+    },
+    {
+      "Datasource": {
+        "dbname": "osm2",
+        "extent": [
+          79.63090189176135,
+          25.727596875441762,
+          88.64798410123775,
+          30.6004271982763
+        ],
+        "geometry_field": "way",
+        "key_field": "",
+        "table": "( SELECT way, waterway AS type  FROM planet_osm_line  WHERE waterway IN ('river', 'canal', 'stream', 'ditch', 'drain')) AS data",
+        "type": "postgis"
+      },
+      "class": "",
+      "geometry": "linestring",
+      "id": "waterway_high",
+      "name": "waterway_high",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913"
+    },
+    {
       "geometry": "linestring",
       "extent": [
         79.63090189176135,
@@ -80,6 +146,78 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "roads_high"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        79.42501755078317,
+        26.22966020443677,
+        88.64798410123775,
+        30.44694498304362
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "( SELECT way, way_area AS area, COALESCE(landuse, leisure, \"natural\", highway, amenity, tourism) AS type  FROM planet_osm_polygon  WHERE way_area > 100000  ORDER BY way_area DESC) AS data",
+        "key_field": "",
+        "geometry_field": "way",
+        "extent_cache": "auto",
+        "extent": "8841552.51,3027553.26,9868248.45,3561130.8",
+        "dbname": "osm2"
+      },
+      "id": "landuse_gen0",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "landuse_gen0"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        79.42501755078317,
+        26.22966020443677,
+        88.64798410123775,
+        30.44694498304362
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "( SELECT way, way_area AS area, COALESCE(landuse, leisure, \"natural\", highway, amenity, tourism) AS type  FROM planet_osm_polygon  WHERE way_area > 10000  ORDER BY way_area DESC) AS data",
+        "key_field": "",
+        "geometry_field": "way",
+        "extent_cache": "auto",
+        "extent": "8841552.51,3027553.26,9868248.45,3561130.8",
+        "dbname": "osm2"
+      },
+      "id": "landuse_gen1",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "landuse_gen1"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        79.42501755078317,
+        26.22966020443677,
+        88.64798410123775,
+        30.44694498304362
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "( SELECT way, way_area AS area, COALESCE(leisure) AS type  FROM planet_osm_polygon  WHERE leisure = 'nature_reserve'  ORDER BY way_area DESC) AS data",
+        "key_field": "",
+        "geometry_field": "way",
+        "extent_cache": "auto",
+        "extent": "8841552.51,3027553.26,9868248.45,3561130.8",
+        "dbname": "osm2"
+      },
+      "id": "landuse_overlays",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "landuse_overlays"
     }
   ],
   "scale": 1,

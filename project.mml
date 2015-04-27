@@ -434,6 +434,150 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "place"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        79.88618369189798,
+        25.764718550241255,
+        88.4703307553675,
+        30.432701203550316
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "( SELECT way, name, religion \n  FROM planet_osm_point\n  WHERE amenity = 'place_of_worship'\n AND religion IN ('hindu', 'buddhist')\n) AS data",
+        "key_field": "",
+        "geometry_field": "way",
+        "extent_cache": "auto",
+        "extent": "8892889.29,2969969.39,9848472.17,3559291.69",
+        "dbname": "osm2"
+      },
+      "id": "temples",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "temples"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        79.88618369189798,
+        25.764718550241255,
+        88.4703307553675,
+        30.432701203550316
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "( SELECT way, name, office\n  FROM planet_osm_point\n  WHERE office = 'government'\n) AS data",
+        "key_field": "",
+        "geometry_field": "way",
+        "extent_cache": "auto",
+        "extent": "8892889.29,2969969.39,9848472.17,3559291.69",
+        "dbname": "osm2"
+      },
+      "id": "office",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "office"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        79.88618369189798,
+        25.764718550241255,
+        88.4703307553675,
+        30.432701203550316
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "( SELECT way, name, amenity\n  FROM planet_osm_point\n  WHERE amenity = 'hospital' OR amenity='pharmacy'\n) AS data",
+        "key_field": "",
+        "geometry_field": "way",
+        "extent_cache": "auto",
+        "extent": "8892889.29,2969969.39,9848472.17,3559291.69",
+        "dbname": "osm2"
+      },
+      "id": "hospital",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "hospital"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        79.88618369189798,
+        25.764718550241255,
+        88.4703307553675,
+        30.432701203550316
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "( SELECT way, name\n  FROM planet_osm_point\n  WHERE amenity = 'school' OR amenity='college'\n) AS data",
+        "key_field": "",
+        "geometry_field": "way",
+        "extent_cache": "auto",
+        "extent": "8892889.29,2969969.39,9848472.17,3559291.69",
+        "dbname": "osm2"
+      },
+      "id": "school",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "school"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        79.88618369189798,
+        25.764718550241255,
+        88.4703307553675,
+        30.432701203550316
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "( SELECT way, name\n  FROM planet_osm_point\n  WHERE amenity = 'fire_station'\n) AS data",
+        "key_field": "",
+        "geometry_field": "way",
+        "extent_cache": "auto",
+        "extent": "8892889.29,2969969.39,9848472.17,3559291.69",
+        "dbname": "osm2"
+      },
+      "id": "fire",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "fire"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        79.88618369189798,
+        25.764718550241255,
+        88.4703307553675,
+        30.432701203550316
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "( SELECT way, name\n  FROM planet_osm_point\n  WHERE amenity = 'fuel'\n) AS data",
+        "key_field": "",
+        "geometry_field": "way",
+        "extent_cache": "auto",
+        "extent": "8892889.29,2969969.39,9848472.17,3559291.69",
+        "dbname": "osm2"
+      },
+      "id": "fuel",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "fuel"
     }
   ],
   "scale": 1,
